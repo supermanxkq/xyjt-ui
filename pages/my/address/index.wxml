@@ -1,0 +1,25 @@
+<!--地址列表容器-->
+<view class="listAddress">
+  <block wx:for="{{addressList}}" wx:key="key" wx:for-index="index" wx:for-item="item">
+    <view class="nameAndPhone">
+      <!--收货人-->
+      <view class="name">
+        {{item.name}}
+      </view>
+      <!--电话号码-->
+      <view class="phone">
+        {{item.phone}}
+      </view>
+      <block wx:if="{{item.isDefault==='1'}}">
+        <!--是否默认地址-->
+        <span class="default">默认</span>
+      </block>
+    </view>
+    <!--收货人详细地址信息-->
+    <view class="address">
+      {{item.address}}
+    </view>
+  </block>
+  <!--新增收货地址按钮-->
+  <button type="primary" class="addAddressBtn">新增收货地址</button>
+</view>

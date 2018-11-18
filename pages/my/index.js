@@ -9,16 +9,6 @@ Page({
       isunread: true,
       unreadNum: 2
     }, {
-      icon: '../../images/iconfont-card.png',
-      text: '我的代金券',
-      isunread: false,
-      unreadNum: 2
-    }, {
-      icon: '../../images/iconfont-icontuan.png',
-      text: '我的拼团',
-      isunread: true,
-      unreadNum: 1
-    }, {
       icon: '../../images/iconfont-shouhuodizhi.png',
       text: '收货地址管理'
     }, {
@@ -44,11 +34,11 @@ Page({
   goto: function(e) {
     var index = e.target.dataset.index;
     console.log("获取到的index的值为："+index);
-    if (index == 3) {
+    if (index == 1) {
       wx.navigateTo({
         url: 'address/index',
       })
-    }else if(index==4){
+    }else if(index==2){
       wx.makePhoneCall({
         phoneNumber: '15001164424',
       })

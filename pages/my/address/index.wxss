@@ -1,0 +1,63 @@
+/**地址列表容器*/
+
+.listAddress {
+  display: flex;
+  flex-direction: column;
+}
+
+/**姓名和手机号码容器*/
+
+.nameAndPhone {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 10px;
+}
+
+/**收货人*/
+
+.name {
+  position: relative;
+  padding-right: 20px;
+  font-size: 14px;
+  font-weight: bolder;
+}
+
+/**联系电话*/
+
+.phone {
+  font-size: 14px;
+  font-weight: bolder;
+  padding-right: 10px;
+}
+
+/**默认地址*/
+
+.default {
+  position: relative;
+  font-size: 10px;
+  font-weight: bolder;
+  width: 25px;
+  height: 14px;
+  background: red;
+  border-radius: 88px / 50px;
+  text-align: center;
+  margin-top: 3px;
+  color:white;
+}
+
+/**详细地址*/
+.address {
+  margin: 0px 10px;
+  font-size: 14px;
+  font-weight: bolder;
+  border-bottom: 1px solid rgb(211, 211, 211);
+  color:rgb(156, 156, 156);
+}
+
+/**新增按钮*/
+
+.addAddressBtn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
