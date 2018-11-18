@@ -6,7 +6,8 @@
     "pages/my/index",
     "pages/details/index",
     "pages/brand/index",
-    "pages/list/index"
+    "pages/list/index",
+    "pages/my/address/index"
   ],
   "window":{
     "backgroundTextStyle":"white",
