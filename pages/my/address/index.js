@@ -2,9 +2,21 @@ var app = getApp()
 Page({
   data: {
     userInfo: {},
-    addressList:{}
+    addressList: {}
   },
   onLoad: function() {
+    this.queryAddressList();
+  },
+  onPullDownRefresh: function() {
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    this.queryAddressList();
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
+  queryAddressList: function() {
     var that = this;
     //请求后台获取地址列表数据
     wx.request({
@@ -19,13 +31,14 @@ Page({
           that.setData({
             addressList: res.data.content
           })
-        }else{
+        } else {
           wx.showToast({
             title: '请求失败',
-            icon:'loading'
+            icon: 'loading'
           })
         }
       }
     })
   }
+
 })
