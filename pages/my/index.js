@@ -48,6 +48,10 @@ Page({
       wx.navigateTo({
         url: 'address/index',
       })
+    }else if(index==4){
+      wx.makePhoneCall({
+        phoneNumber: '15001164424',
+      })
     }
   }
 })
