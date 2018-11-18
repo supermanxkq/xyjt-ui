@@ -3,6 +3,7 @@
 .listAddress {
   display: flex;
   flex-direction: column;
+  margin-bottom:46px;
 }
 
 /**姓名和手机号码容器*/

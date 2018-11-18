@@ -1,0 +1,10 @@
+.addFormView{
+  display: flex;
+  flex-direction: column;
+}
+.section{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin: 10px 10px;
+}

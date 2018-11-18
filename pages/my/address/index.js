@@ -16,6 +16,7 @@ Page({
     // 停止下拉动作
     wx.stopPullDownRefresh();
   },
+  //查询地址列表
   queryAddressList: function() {
     var that = this;
     //请求后台获取地址列表数据
@@ -38,6 +39,12 @@ Page({
           })
         }
       }
+    })
+  },
+  //跳转到新增收货人页面
+  toAddPage:function(){
+    wx.navigateTo({
+      url: 'addAddress/index',
     })
   }
 

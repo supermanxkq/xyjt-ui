@@ -1,0 +1,39 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <!--表单容器-->
+  <view class='addFormView'>
+    <!--收货人-->
+    <view class="section">
+      <label class="label-2__text" for="name">
+        <text>收货人：</text>
+      </label>
+      <input name="name" maxlength='5' id="name" placeholder="请输入收货人" auto-focus/>
+    </view>
+    <!--手机号码-->
+    <view class="section">
+      <label class="label-2__text" for="phone">
+        <text>手机号码：</text>
+      </label>
+      <input name="phone" id="phone" maxlength='11' placeholder="请输入手机号码" auto-focus/>
+    </view>
+    <!--详细地址-->
+    <view class="section">
+      <label class="label-2__text" for="address">
+        <text>地址：</text>
+      </label>
+      <textarea placeholder="请输入详细地址" id="address" name="address" />
+    </view>
+    <!--是否为默认地址-->
+    <view class="section">
+      <label class="label-2__text" for="isDefault">
+        <text>是否为默认地址：</text>
+      </label>
+      <switch bindchange="changeIsDefault" />
+      <input name="isDefault" hidden='true' value="{{isDefault}}" />
+    </view>
+    <!--保存-->
+    <view class="section">
+      <button formType="submit">提交</button>
+      <button formType="reset">重置</button>
+    </view>
+  </view>
+</form>

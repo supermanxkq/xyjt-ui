@@ -21,5 +21,5 @@
     </view>
   </block>
   <!--新增收货地址按钮-->
-  <button type="primary" class="addAddressBtn">新增收货地址</button>
+  <button type="primary" class="addAddressBtn" bindtap='toAddPage'>新增收货地址</button>
 </view>
