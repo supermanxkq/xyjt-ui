@@ -28,7 +28,7 @@ Page({
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     console.log(e.detail.value.address);
     wx.request({
-      url: 'http://192.168.0.102:8040/backstage/takeaddress/create',
+      url: app.globalData.domain +'/backstage/takeaddress/create',
       method:'POST',
       data:{
         'name': e.detail.value.name, 

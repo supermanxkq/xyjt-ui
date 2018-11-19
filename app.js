@@ -32,6 +32,7 @@ App({
     console.log('App Hide')
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    domain:'http://192.168.0.102:8040'
   }
 })

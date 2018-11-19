@@ -21,7 +21,7 @@ Page({
     var that = this;
     //请求后台获取地址列表数据
     wx.request({
-      url: 'http://192.168.0.102:8040/backstage/takeaddress/list',
+      url: app.globalData.domain+'/backstage/takeaddress/list',
       data: {},
       header: {
         'content-type': 'application/json' // 默认值
