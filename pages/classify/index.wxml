@@ -5,17 +5,20 @@
     </block>
   </view>
   <view class="nav_right">
-     <view wx:if="{{navMenu}}"> 
-      <block wx:for="{{navMenu[curIndex].childMenu}}" wx:key="child_key" wx:for-item="childItem" >
+    <view wx:if="{{navMenu}}">
+      <block wx:for="{{navMenu[curIndex].childMenu}}" wx:key="child_key" wx:for-item="childItem">
         <view class="nav_right_items">
           <navigator url="../list/index?brand={{childItem.tree.id}}&typeid={{navRightItems[curIndex].id}}">
             <view>
-              <block wx:if="{{childItem.tree.logo}}">
-                <image src="{{childItem.tree.logo}}"></image>
-              </block>
-              <block wx:else>
+            <!-- <block wx:if="{{childItem.tree.logo}}"> -->
+            <image src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" />
+            <!-- <image src="https://alshyl.com/images/a.png" /> -->
+
+            <!-- <image src="http://192.168.0.102:8888/images/a.png" /> -->
+            <!-- </block> -->
+            <!-- <block wx:else>
                 <image src="http://temp.im/50x30"></image>
-              </block>
+              </block> -->
             </view>
             <view wx:if="{{childItem.name}}">
               <text>{{childItem.name}}</text>
@@ -26,7 +29,8 @@
           </navigator>
         </view>
       </block>
-     </view>
-     <view wx:else>暂无数据</view> 
+    </view>
+    <view wx:else>暂无数据</view>
+
   </view>
 </view>

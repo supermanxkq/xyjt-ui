@@ -43,8 +43,8 @@ page{
   text-align: center;
 }
 .nav_right .nav_right_items image{
-  width: 50px;
-  height: 30px;
+  width: 42px;
+  height: 52px;
 }
 .nav_right .nav_right_items text{
   display: block;

@@ -3,6 +3,7 @@ Page({
   data: {
     userInfo: {},
     addressList: {}
+    
   },
   onLoad: function() {
     this.queryAddressList();
