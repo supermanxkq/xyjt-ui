@@ -12,13 +12,6 @@
             <view>
             <!-- <block wx:if="{{childItem.tree.logo}}"> -->
             <image src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" />
-            <!-- <image src="https://alshyl.com/images/a.png" /> -->
-
-            <!-- <image src="http://192.168.0.102:8888/images/a.png" /> -->
-            <!-- </block> -->
-            <!-- <block wx:else>
-                <image src="http://temp.im/50x30"></image>
-              </block> -->
             </view>
             <view wx:if="{{childItem.name}}">
               <text>{{childItem.name}}</text>
