@@ -8,7 +8,7 @@ page {
   align-items: center;
   justify-content: center;
   margin: 5px 0;
-  border-top: 1px solid #e4e4e4;
+  /**border-top: 1px solid #e4e4e4;*/
   border-bottom: 1px solid #e4e4e4;
 }
 

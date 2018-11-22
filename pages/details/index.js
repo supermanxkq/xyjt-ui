@@ -6,49 +6,117 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 1200,
-    goodsPicsInfo: [{
-      picurl: 'http://192.168.0.102:8040/admin/image/download/31/GOODSTYPE'
-    }, {
-        picurl: 'https://img14.360buyimg.com/n7/jfs/t17119/218/692808582/98253/20e0800a/5aa22186Nd71d4fda.jpg'
-      }, {
-        picurl: 'https://img12.360buyimg.com/n7/jfs/t27853/80/1673547331/206269/86a69cf2/5be9a750N52ce5ceb.jpg'
-      }],
-    shopppingDetails:{
-      title: '雅马哈（YAMAHA）民谣木吉他初学者入门F310/F600男女41寸 印尼制 F310-经典原声款', reason:'❤【官方商城】印尼原装正品 ❤【精彩好礼】好琴赠好配件 ❤【免费教学】零基础轻松弹 ❤【顺丰闪送】全国顺丰包邮 ❤【新品推荐】国民单板登场'
-    }
+    goodsId: 0,
+    goodsPicsInfo: {},
+    chooseSize: false,
+    animationData: {},
+    shopppingDetails: {}
   },
 
   onLoad: function(options) {
-
     var that = this
-
     // 商品详情
     wx.request({
-      url: 'http://huanqiuxiaozhen.com/wemall/goods/inqgoods?id=' + options.id,
+      url: app.globalData.domain + '/backstage/goods/view/' + options.id,
       method: 'GET',
       data: {},
       header: {
         'Accept': 'application/json'
       },
       success: function(res) {
-        //console.log(res.data.data);
-        that.data.shopppingDetails = res.data.data;
-
-        var goodsPicsInfo = [];
-        var goodsPicsObj = {};
-        var goodspic = res.data.data.goodspics;
-        var goodspics = goodspic.substring(0, goodspic.length - 1);
-        var goodspicsArr = goodspics.split("#");
-        for (var i = 0; i < goodspicsArr.length; i++) {
-          goodsPicsInfo.push({
-            "picurl": goodspicsArr[i]
-          });
-        }
         that.setData({
-          goodsPicsInfo: goodsPicsInfo
+          shopppingDetails: res.data,
+          goodsPicsInfo: res.data.goodsPicVos
         })
       }
     })
 
+  },
+  //弹出层展示
+  chooseSezi: function(e) {
+    // 用that取代this，防止不必要的情况发生
+    var that = this;
+    // 创建一个动画实例
+    var animation = wx.createAnimation({
+      // 动画持续时间
+      duration: 500,
+      // 定义动画效果，当前是匀速
+      timingFunction: 'linear'
+    })
+    // 将该变量赋值给当前动画
+    that.animation = animation
+    // 先在y轴偏移，然后用step()完成一个动画
+    animation.translateY(200).step()
+    // 用setData改变当前动画
+    that.setData({
+      // 通过export()方法导出数据
+      animationData: animation.export(),
+      // 改变view里面的Wx：if
+      chooseSize: true
+    })
+    // 设置setTimeout来改变y轴偏移量，实现有感觉的滑动
+    setTimeout(function() {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export()
+      })
+    }, 200)
+  },
+  //隐藏弹出层
+  hideModal: function(e) {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: 'linear'
+    })
+    that.animation = animation
+    animation.translateY(200).step()
+    that.setData({
+      animationData: animation.export()
+
+    })
+    setTimeout(function() {
+      animation.translateY(0).step()
+      that.setData({
+        animationData: animation.export(),
+        chooseSize: false
+      })
+    }, 200)
+  },
+  //点击加入购物车
+  addShopCart: function(e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    console.log(e.detail.value.address);
+    wx.request({
+      url: app.globalData.domain + '/backstage/cart/create',
+      method: 'POST',
+      data: {
+        'goodsId': e.detail.value.goodsId,
+        'goodsNum': 1
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function(res) {
+        if (res.data.resultCode == 'SUCCESS') {
+          wx.showToast({
+            title: '添加成功',
+            icon: 'success',
+            duration: 1500
+          })
+        }
+      }
+    });
+  },
+  //跳到购物车界面
+  toCartPage:function(){
+    wx.reLaunch({
+      url: '../cart/index',
+    })
+  },
+  contact:function(){
+    wx.makePhoneCall({
+      phoneNumber: '15001164424',
+    })
   }
 })

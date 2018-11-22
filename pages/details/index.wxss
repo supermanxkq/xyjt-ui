@@ -1,28 +1,103 @@
-page{
-    background-color: #fff;
-    font-size: 14px;
-}
-.swiper_box {
-    width: 100%;
-    height: 320px;
-}
-.swiper_box .slide-image{
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    overflow: hidden;
-}
-.shopping_container{
-    padding: 0 30rpx;
-}
-.shopping_container .title{
-    margin: 20rpx 0;
-    font-weight: bold;
-    color: #333;
+page {
+  background-color: #fff;
+  font-size: 14px;
 }
 
-.shopping_container .reason{
-    margin: 20rpx 0;
-    color: #939393;
-    line-height: 22px;
+.swiper_box {
+  width: 100%;
+  height: 320px;
+}
+
+.swiper_box .slide-image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.shopping_container {
+  padding: 0 30rpx;
+}
+
+.shopping_container .title {
+  margin: 20rpx 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.shopping_container .price {
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 0;
+  color: #f70202;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.shopping_container .price .price_num {
+  font-size: 20px;
+  color: #f70202;
+  font-weight: bolder;
+  line-height: 22px;
+}
+
+/**添加购物车按钮*/
+
+.addCart {
+  margin: 0px 10px;
+}
+.btnList{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+/**
+弹出层样式
+地址列表容器*/
+
+.listAddress {
+  display: flex;
+  flex-direction: column;
+}
+
+.maskLayer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: #999;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+
+.choose {
+  z-index: 10000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgb(250, 250, 250);
+  height:500px;
+
+}
+
+.choose .listAddress .address{
+  position: relative;
+  margin: 10px 10px;
+  border-bottom: 1px solid rgb(196, 193, 193);
+  padding:10px 10px;
+}
+.choose .listAddress .address .address_text{
+  padding: 10px 0px;
+}
+.choose .listAddress .address image{
+  width:12px;
+  height:12px;
+  padding:0px 5px;
+}
+
+.choose .title {
+  text-align: center;
 }

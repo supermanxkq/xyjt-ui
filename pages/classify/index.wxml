@@ -8,7 +8,7 @@
     <view wx:if="{{navMenu}}">
       <block wx:for="{{navMenu[curIndex].childMenu}}" wx:key="child_key" wx:for-item="childItem">
         <view class="nav_right_items">
-          <navigator url="../list/index?brand={{childItem.tree.id}}&typeid={{navRightItems[curIndex].id}}">
+          <navigator url="../list/index?goodsTypeId={{childItem.id}}">
             <view>
             <!-- <block wx:if="{{childItem.tree.logo}}"> -->
             <image src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" />

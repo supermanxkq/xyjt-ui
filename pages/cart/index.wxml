@@ -1,4 +1,25 @@
 <view class="container">
-  <image src="{{cartImg}}" class="cart-image"/>
-  <view>{{tipWords}}</view>
+  <view wx:if="{{list.length != 0}}">
+    <block wx:for="{{list}}" wx:key="key">
+      <!-- <navigator url="../details/index?id={{item.id}}"> -->
+        <view class="brand_item">
+          <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
+          <view class="right_cont">
+            <text class="country">{{item.goodsName}}</text>
+            <view class="price">
+              <text class="ourprice">￥{{item.goodsPrice}}.00</text>
+              <!-- <text class="discount">8折</text>
+            <text class="marketprice">{{item.marketprice}}.00</text> -->
+            </view>
+            <!-- <text class="name">{{item.goodsNum}}条评价 {{item.goodsNum}}次浏览  {{item.bigname}}好评</text> -->
+          </view>
+        </view>
+      <!-- </navigator> -->
+    </block>
+      <button type="warn" class="addAddressBtn" bindtap='toAddPage'>结算</button>
+  </view>
+  <view wx:else class="empty_cart">
+    <image src="{{cartImg}}" class="cart-image" />
+    <view>{{tipWords}}</view>
+  </view>
 </view>
