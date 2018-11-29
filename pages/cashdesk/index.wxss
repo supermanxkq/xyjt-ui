@@ -1,0 +1,19 @@
+/**支付按钮*/
+
+.pay_btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.wechat_pay {
+  text-align: center;
+}
+
+.wechat_pay image {
+  width: 200px;
+  height: 130px;
+}
+page{
+  background-color:#FFF;
+}

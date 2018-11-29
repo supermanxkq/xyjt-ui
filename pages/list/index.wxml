@@ -2,7 +2,6 @@
   <block wx:for="{{list}}" wx:key="key">
     <navigator url="../details/index?id={{item.id}}">
       <view class="brand_item">
-
         <image src="{{domain}}/admin/image/download/{{item.id}}/GOODSCOVER" class="pic"></image>
         <view class="right_cont">
           <text class="country">{{item.name}}</text>
@@ -11,7 +10,7 @@
             <!-- <text class="discount">8折</text>
             <text class="marketprice">{{item.marketprice}}.00</text> -->
           </view>
-          <text class="name">{{item.commentsNum}}条评价 {{item.viewNum}}次浏览  {{item.bigname}}好评</text>
+          <text class="name"><!--{{item.commentsNum}}条评价 -->{{item.viewNum}}次浏览  </text>
         </view>
       </view>
     </navigator>

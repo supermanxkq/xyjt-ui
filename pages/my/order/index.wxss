@@ -1,0 +1,178 @@
+page {
+  background: rgb(243, 243, 243);
+  font-size: 14px;
+}
+
+.container .brand_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 10px;
+  /**border-top: 1px solid #e4e4e4;*/
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.container .brand_item .pic {
+  display: block;
+  width: 70px;
+  height: 70px;
+}
+
+.right_cont {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.right_cont .country {
+  display: block;
+  color: black;
+}
+
+.price {
+  margin: 10px 0px 0px 0px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  color: #333;
+}
+
+.right_cont .name {
+  /* margin: 10px 0; */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  color: rgb(190, 187, 187);
+  font-size: 12px;
+}
+
+.right_cont .ourprice {
+  color: #f70202;
+  font-weight: bold;
+}
+
+.right_cont .discount {
+  height: 16px;
+  line-height: 16px;
+  margin: 0 10px;
+  padding: 1px 6px 1px 10px;
+  background: url(http://www.huanqiuxiaozhen.com/assets/images/discount-bg.png) no-repeat center;
+  background-size: cover;
+  color: rgb(235, 27, 27);
+  font-size: 12px;
+}
+
+.right_cont .marketprice {
+  text-decoration: line-through;
+  color: #939393;
+}
+
+.empty_order {
+  text-align: center;
+}
+
+.cart-image {
+  width: 97px;
+  height: 120px;
+  margin-top: 20px;
+}
+
+/**
+*单个订单的样式
+*/
+
+.order_single {
+  margin: 20px 0px;
+  background: rgb(255, 255, 255);
+}
+
+.store_status {
+  margin-left: 10px;
+  border-bottom: 1px solid rgb(235, 231, 231);
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: row;
+ 
+}
+.store_status text{
+text-align:justify;
+}
+.store{
+  
+}
+.status {
+  color: red;
+  margin: 0px 10px;
+}
+
+/**创建日期*/
+
+.cr_dt_view {
+  margin: 5px 10px;
+}
+
+.cr_dt_view .cr_dt {
+  color: rgb(194, 192, 192);
+}
+
+/**底部信息和按钮*/
+
+.infoAndBtn {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 10px;
+}
+
+.infoAndBtn .info {
+  text-align: right;
+  margin: 10px 10px;
+  border-bottom: 1px solid rgb(235, 231, 231);
+}
+
+.infoAndBtn .info .goods_num {
+  margin-right: 10px;
+}
+
+.infoAndBtn .btn_oper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; /**右对齐*/
+}
+
+.infoAndBtn .btn_oper button {
+  position: relative;
+  display: block;
+  margin: 0px 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 2.55555556;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+}
+
+.infoAndBtn .btn_oper .buy_again {
+  align-items: center;
+}
+
+.infoAndBtn .btn_oper .goto_pay {
+  position: relative;
+  align-items: center;
+}
+
+.item-left {
+   flex: 1; /* 重要 */
+   align-items:center;
+}
+ 
+.item-right {
+  position: relative;
+  align-items:center;
+}

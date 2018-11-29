@@ -4,7 +4,8 @@ Page({
     navMenu: {},
     curNav: 1,
     curIndex: 0,
-    domain: app.globalData.domain
+    domain: app.globalData.domain,
+    showList: true
   },
   onLoad: function() {
     this.queryGoodsType();
@@ -40,6 +41,11 @@ Page({
         that.setData({
           navMenu: res.data.navItems,
         })
+        setTimeout(() => {
+          that.setData({
+            showList: false
+          });
+        }, 250);
       }
     })
   }

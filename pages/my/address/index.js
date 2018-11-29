@@ -2,7 +2,8 @@ var app = getApp()
 Page({
   data: {
     userInfo: {},
-    addressList: {}
+    addressList: {},
+    domain: app.globalData.domain,
     
   },
   onLoad: function() {

@@ -16,7 +16,7 @@
         <view class="price_num">{{shopppingDetails.price}}.00</view>
       </view>
       <view class="title">{{shopppingDetails.name}}</view>
-      <view class='text' bindtap='chooseSezi'>请选择：收货地址</view>
+      <!-- <view class='text' bindtap='chooseSezi'>请选择：收货地址</view> -->
     </view>
 
     <!--隐藏区域  -->

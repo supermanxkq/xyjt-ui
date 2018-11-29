@@ -24,6 +24,7 @@ page{
 }
 .nav_left .nav_left_items.active{
   background: #fff;
+  border-left: 5px solid red;
 }
 .nav_right{
   position: absolute;
@@ -53,4 +54,13 @@ page{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

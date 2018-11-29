@@ -1,0 +1,62 @@
+<!-->
+crUsId freight goodsId id leaveMsg payDt payMethod payMoney status "YTJ" tackAddressId : 2
+<-->
+  <view class="container">
+    <view wx:if="{{list.length!= 0}}">
+      <block wx:for="{{list}}" wx:key="key">
+        <view class="order_single">
+          <view class="store_status">
+            <view class='item-left'>
+              <text class="store">小野吉他工作室</text>
+            </view>
+            <view class='item-right'>
+              <text class="status" wx:if="{{item.status=='YTJ'}}">等待付款</text>
+            </view>
+            <text class="status" wx:if="{{item.status=='DSH'}}">商品出库</text>
+            <text class="status" wx:if="{{item.status=='DONE'}}">已完成</text>
+            <text class="status" wx:if="{{item.status=='CANCEL'}}">已取消</text>
+          </view>
+          <view class="cr_dt_view">
+            <text class="cr_dt">{{item.crDt}}</text>
+          </view>
+          <navigator url="../details/index?id={{item.id}}">
+            <view class="brand_item">
+              <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
+              <view class="right_cont">
+                <text class="country">马丁（MARTING）DX1RAE单板民谣电箱吉他41寸D型玫瑰木背侧板原装进口</text>
+                <!-- <view class="price">
+                  <text class="ourprice">￥{{item.payMoney}}.00</text>
+                  <text class="discount">8折</text>
+                  <text class="marketprice">{{item.payMoney}}.00</text>
+                </view> -->
+                <!-- <text class="name">{{item.crDt}}</text> -->
+              </view>
+            </view>
+          </navigator>
+          <navigator url="../details/index?id={{item.id}}">
+            <view class="brand_item">
+              <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
+              <view class="right_cont">
+                <text class="country">马丁（MARTING）DX1RAE单板民谣电箱吉他41寸D型玫瑰木背侧板原装进口</text>
+              </view>
+            </view>
+          </navigator>
+          <view class="infoAndBtn">
+            <view class="info">
+              <text class="goods_num">共1件商品</text>
+              <text class="payed_money">实付款：¥1499.00</text>
+            </view>
+            <view class="btn_oper">
+              <button type="warn" plain="true" class="buy_again">再次购买</button>
+              <button type="warn" plain="true" class="goto_pay">去支付</button>
+            </view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+    <view wx:else class="empty_order">
+      <image src="{{cartImg}}" class="cart-image" />
+      <view>{{tipWords}}</view>
+    </view>
+  </view>

@@ -1,0 +1,41 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="addOrderContainer">
+    <!--收货地址-->
+    <view class="take_address">
+      <view class="nameAndPhone">
+        <!--收货人-->
+        <view class="name">
+          {{takeAddressDefault.name}}
+        </view>
+        <!--电话号码-->
+        <view class="phone">
+          {{takeAddressDefault.phone}}
+        </view>
+      </view>
+      <!--是否默认地址-->
+      <view class="address_detail">
+        <view class="address"><span class="default">默认</span> {{takeAddressDefault.address}}</view>
+      </view>
+    </view>
+    <!--商品信息-->
+    <view class="goods_list">
+      <block wx:for="{{list}}" wx:key="key">
+        <view class="goods_item">
+          <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
+          <view class="right_cont">
+            <text class="country">{{item.goodsName}}</text>
+            <view class="price">
+              <text class="ourprice">￥{{item.goodsPrice}}.00</text>
+              <text class="name">X {{item.buyNum}} 件</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+   <view class="bottomOper">
+      <!--商品总价格-->
+      <!--提交订单按钮-->
+      <button type="warn" formType="submit">提交订单</button>
+    </view>
+</form>

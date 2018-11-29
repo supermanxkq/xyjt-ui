@@ -2,7 +2,7 @@ var app = getApp()
 Page({
   data: {
     cartImg: '../../images/cart-null.png',
-    tipWords: '购物车空空如也',
+    tipWords: '购物车空空哒～',
     list: {},
     domain: app.globalData.domain
   },
@@ -20,9 +20,10 @@ Page({
   },
   //查询购物车列表
   queryCartList() {
+    var user = wx.getStorageSync('user') || {};
     var that = this
     wx.request({
-      url: app.globalData.domain + '/backstage/cart/list',
+      url: app.globalData.domain + '/backstage/cart/list?crUsId='+user.openid,
       method: 'GET',
       data: {},
       header: {
@@ -33,6 +34,12 @@ Page({
           list: res.data.content,
         });
       }
+    })
+  },
+  //点击结算按钮，跳转到提交订单页面
+  settle:function(){
+    wx.navigateTo({
+      url: '../my/order/addOrder/index',
     })
   }
 })

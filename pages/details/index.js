@@ -3,14 +3,15 @@ Page({
   data: {
     indicatorDots: true,
     vertical: false,
-    autoplay: true,
+    autoplay: false,
     interval: 3000,
     duration: 1200,
     goodsId: 0,
     goodsPicsInfo: {},
     chooseSize: false,
     animationData: {},
-    shopppingDetails: {}
+    shopppingDetails: {},
+    domain: app.globalData.domain
   },
 
   onLoad: function(options) {
@@ -87,12 +88,15 @@ Page({
   addShopCart: function(e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     console.log(e.detail.value.address);
+    var user = wx.getStorageSync('user') || {};
+    console.log(user);
     wx.request({
       url: app.globalData.domain + '/backstage/cart/create',
       method: 'POST',
       data: {
         'goodsId': e.detail.value.goodsId,
-        'goodsNum': 1
+        'goodsNum': 1,
+        'crUsId':user.openid
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"

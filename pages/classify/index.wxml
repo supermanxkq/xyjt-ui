@@ -4,6 +4,7 @@
       <view class="nav_left_items {{curNav == item.id ? 'active' : ''}}" bindtap="switchRightTab" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</view>
     </block>
   </view>
+  <block wx:if="{{!showList}}">
   <view class="nav_right">
     <view wx:if="{{navMenu}}">
       <block wx:for="{{navMenu[curIndex].childMenu}}" wx:key="child_key" wx:for-item="childItem">
@@ -11,7 +12,7 @@
           <navigator url="../list/index?goodsTypeId={{childItem.id}}">
             <view>
             <!-- <block wx:if="{{childItem.tree.logo}}"> -->
-            <image src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" />
+            <image lazy-load="true" class="fadeIn" src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" />
             </view>
             <view wx:if="{{childItem.name}}">
               <text>{{childItem.name}}</text>
@@ -24,6 +25,6 @@
       </block>
     </view>
     <view wx:else>暂无数据</view>
-
   </view>
+  </block>
 </view>

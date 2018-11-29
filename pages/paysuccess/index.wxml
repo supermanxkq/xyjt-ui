@@ -1,0 +1,10 @@
+<view class="top">
+    <view class="wrap">
+      <image src="../../images/pay_success.png" class="img"></image>
+      <text class="word">支付成功</text>
+    </view>
+</view>
+<view class="btn-group">
+  <button type="primary" style="background-color:#f9364f" bindtap='toGoodsList' class="continue">浏览其他商品</button>
+  <button type="primary" style="background-color:#c9c9c9;color:#656565"  class="see" bindtap='toOrderList'>查看订单</button>
+</view>
