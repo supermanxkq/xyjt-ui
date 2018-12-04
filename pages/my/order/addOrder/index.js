@@ -11,7 +11,7 @@ Page({
     //商品列表
     list: {},
     domain: app.globalData.domain,
-
+    disabled: false
   },
 
   /**
@@ -22,13 +22,19 @@ Page({
   },
   queryConfirmOrder: function() {
     var that = this;
+    var user = wx.getStorageSync('user') || {};
     wx.request({
-      url: app.globalData.domain + '/backstage/order/confirmOrder',
+      url: app.globalData.domain + '/backstage/order/confirmOrder?crUsId=' + user.openid,
       method: 'GET',
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function(res) {
+        if (!res.data.takeAddress){
+            wx.redirectTo({
+              url: '../../address/index',
+            })
+        }
         that.setData({
           takeAddressDefault: res.data.takeAddress,
           list: res.data.orderConfirmVos
@@ -40,22 +46,35 @@ Page({
    * 提交订单处理函数
    */
   formSubmit: function(e) {
+    var that = this;
+    that.setData({
+      disabled: true
+    })
+    var user = wx.getStorageSync('user') || {};
     wx.request({
       url: app.globalData.domain + '/backstage/order/create',
       method: 'POST',
       data: {
-        'crUsId': 1
+        'crUsId': user.openid
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
         if (res.data.resultCode == 'SUCCESS') {
-          wx.navigateTo({
-            url: '../../../cashdesk/index',
+          wx.reLaunch({
+            url: '../../../cashdesk/index?orderId='+res.data.id,
           })
         }
       }
     });
+  },
+  onHide(options){
+    wx.setStorageSync('submitOrderFlag', true);
+  },
+  toIndex:function(){
+    wx.reLaunch({
+      url: '../../../classify/index',
+    })
   }
 })

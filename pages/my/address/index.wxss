@@ -1,64 +1,118 @@
 /**地址列表容器*/
 
-.listAddress {
-  display: flex;
-  flex-direction: column;
-  margin-bottom:46px;
-}
-
 /**姓名和手机号码容器*/
 
-.nameAndPhone {
-  display: flex;
-  flex-direction: row;
-  margin: 10px 10px;
-}
-
-/**收货人*/
-
-.name {
-  position: relative;
-  padding-right: 20px;
-  font-size: 14px;
-  font-weight: bolder;
-}
-
-/**联系电话*/
-
-.phone {
-  font-size: 14px;
-  font-weight: bolder;
-  padding-right: 10px;
-}
-
-/**默认地址*/
-
-.default {
-  position: relative;
-  font-size: 10px;
-  font-weight: bolder;
-  width: 25px;
-  height: 14px;
-  background: red;
-  border-radius: 88px / 50px;
-  text-align: center;
-  margin-top: 3px;
-  color:white;
-}
+/* . */
 
 /**详细地址*/
-.address {
-  margin: 0px 10px;
-  font-size: 14px;
-  font-weight: bolder;
-  border-bottom: 1px solid rgb(211, 211, 211);
-  color:rgb(156, 156, 156);
-}
 
 /**新增按钮*/
 
-.addAddressBtn {
+.bottomOper {
+  display: flex;
+  flex-direction: row;
   position: fixed;
   bottom: 0;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  z-index: 5;
+}
+.bottomOper button {
+  width: 50%;
+}
+/**################################*/
+
+view {
+  box-sizing: border-box;
+}
+
+.item-box {
+  width: 700rpx;
+  margin: 0 auto;
+  padding: 40rpx 0;
+  margin-bottom: 50px;
+}
+
+.items {
+  width: 100%;
+}
+
+.item {
+  position: relative;
+  border-top: 2rpx solid #eee;
+  height: 120rpx;
+  line-height: 120rpx;
+  overflow: hidden;
+}
+
+.item:last-child {
+  border-bottom: 2rpx solid #eee;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+}
+
+.inner.txt {
+  background-color: #fff;
+  width: 100%;
+  z-index: 5;
+  padding: 0 10rpx;
+  transition: left 0.2s ease-in-out;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inner.del {
+  background-color: #e64340;
+  width: 180rpx;
+  text-align: center;
+  z-index: 4;
+  right: 0;
+  color: #fff;
+}
+
+.item-icon {
+  width: 64rpx;
+  vertical-align: middle;
+  margin-right: 16rpx;
+}
+
+.thumb {
+  width: 200px;
+  height: 200px;
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+}
+
+.default {
+  background-color: #bebbbb;
+  width: 180rpx;
+  text-align: center;
+  z-index: 4;
+  color: #fff;
+  right:180rpx;
+}
+
+.default_span{
+  background-color: red;
+  color: #fff;
+}
+.name_phone{
+  display:flex;
+  margin: 0px 5px;
+}
+.name{
+  font-size: 14px;
+  margin-right: 10px;
+}
+.phone{
+  font-size: 14px;
+}
+.empty_cart {
+  text-align: center;
+  margin-top: 100px;
 }

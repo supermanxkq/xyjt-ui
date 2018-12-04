@@ -11,7 +11,8 @@ Page({
     chooseSize: false,
     animationData: {},
     shopppingDetails: {},
-    domain: app.globalData.domain
+    domain: app.globalData.domain,
+    disabled: false
   },
 
   onLoad: function(options) {
@@ -86,41 +87,64 @@ Page({
   },
   //点击加入购物车
   addShopCart: function(e) {
+    var that = this;
+    that.setData({
+      disabled: true
+    })
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     console.log(e.detail.value.address);
     var user = wx.getStorageSync('user') || {};
     console.log(user);
     wx.request({
-      url: app.globalData.domain + '/backstage/cart/create',
+      url: app.globalData.domain + '/backstage/cart/check',
       method: 'POST',
       data: {
-        'goodsId': e.detail.value.goodsId,
-        'goodsNum': 1,
-        'crUsId':user.openid
+        'crUsId': user.openid
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function(res) {
-        if (res.data.resultCode == 'SUCCESS') {
+        if (res.data.resultCode == 'SUCCESS' && res.data.goodsNum==0) {
+          wx.request({
+            url: app.globalData.domain + '/backstage/cart/create',
+            method: 'POST',
+            data: {
+              'goodsId': e.detail.value.goodsId,
+              'goodsNum': 1,
+              'crUsId': user.openid
+            },
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function(res) {
+              if (res.data.resultCode == 'SUCCESS') {
+                wx.showToast({
+                  title: '添加成功',
+                  icon: 'success',
+                  duration: 1500
+                })
+              }
+            }
+          });
+        } else if (res.data.resultCode == 'SUCCESS' && res.data.goodsNum == -1){
           wx.showToast({
-            title: '添加成功',
-            icon: 'success',
-            duration: 1500
+            title: '购物车满了',
           })
         }
       }
     });
+
   },
   //跳到购物车界面
-  toCartPage:function(){
+  toCartPage: function() {
     wx.reLaunch({
       url: '../cart/index',
     })
   },
-  contact:function(){
+  contact: function() {
     wx.makePhoneCall({
-      phoneNumber: '15001164424',
+      phoneNumber: '18004831028',
     })
   }
 })

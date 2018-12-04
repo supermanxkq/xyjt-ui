@@ -2,5 +2,8 @@
   <view class="wechat_pay">
     <image src="../../images/WeChatPay.jpg"></image>
   </view>
-  <button type="warn" class="pay_btn" bindtap='payMoney'>微信支付1000.00元</button>
+  <view class="bottomOper">
+    <button type="" bindtap='toIndex'>首页</button>
+    <button type="warn" class="pay_btn" data-orderId="{{orderId}}" disabled='{{disabled}}' bindtap='payMoney'>支付{{payMoney}}.00元</button>
+  </view>
 </view>

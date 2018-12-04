@@ -59,7 +59,7 @@ page {
   line-height: 16px;
   margin: 0 10px;
   padding: 1px 6px 1px 10px;
-  background: url(http://www.huanqiuxiaozhen.com/assets/images/discount-bg.png) no-repeat center;
+  /* background: url(http://www.huanqiuxiaozhen.com/assets/images/discount-bg.png) no-repeat center; */
   background-size: cover;
   color: rgb(235, 27, 27);
   font-size: 12px;
@@ -68,4 +68,9 @@ page {
 .right_cont .marketprice {
   text-decoration: line-through;
   color: #939393;
+}
+
+.empty_cart {
+  text-align: center;
+  margin-top: 100px;
 }

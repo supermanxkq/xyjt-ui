@@ -7,19 +7,26 @@ Page({
       icon: '../../images/iconfont-dingdan.png',
       text: '我的订单',
       isunread: true,
-      unreadNum: 2
     }, {
       icon: '../../images/iconfont-shouhuodizhi.png',
       text: '收货地址管理'
     }, {
       icon: '../../images/iconfont-kefu.png',
       text: '联系客服'
-    }, {
-      icon: '../../images/iconfont-help.png',
-      text: '常见问题'
+    // }, {
+    //   icon: '../../images/icon_normal.png',
+    //   text: '分享小程序'
+    // }]
     }]
   },
-
+  onPullDownRefresh: function() {
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作
+    wx.stopPullDownRefresh();
+  },
   onLoad: function() {
     // var that = this
     // //调用应用实例的方法获取全局数据
@@ -33,19 +40,36 @@ Page({
   //跳转页面
   goto: function(e) {
     var index = e.target.dataset.index;
-    console.log("获取到的index的值为："+index);
+    console.log("获取到的index的值为：" + index);
     if (index == 1) {
       wx.navigateTo({
         url: 'address/index',
       })
-    }else if(index==2){
+    } else if (index == 2) {
       wx.makePhoneCall({
-        phoneNumber: '15001164424',
+        phoneNumber: '18004831028',
       })
-    }else if(index==0){
+    } else if (index == 0) {
       wx.navigateTo({
         url: 'order/index',
       })
+    }else if(index ==3){
+    }
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+    return {
+      title: '小野吉他工作室',
+      path: '/pages/classify/index',
+      imageUrl: "/images/share2.jpg",
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
     }
   }
 })

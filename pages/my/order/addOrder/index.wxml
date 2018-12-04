@@ -36,6 +36,7 @@
    <view class="bottomOper">
       <!--商品总价格-->
       <!--提交订单按钮-->
-      <button type="warn" formType="submit">提交订单</button>
+      <button type="" bindtap='toIndex'>首页</button>
+      <button type="warn" formType="submit" disabled='{{disabled}}'>提交订单</button>
     </view>
 </form>

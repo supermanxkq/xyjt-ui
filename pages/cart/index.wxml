@@ -6,6 +6,7 @@
           <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
           <view class="right_cont">
             <text class="country">{{item.goodsName}}</text>
+            <view class="delete_cart" bindtap='deleteCart' data-cartid="{{item.id}}">删除</view>
             <view class="price">
               <text class="ourprice">￥{{item.goodsPrice}}.00</text>
                <text class="discount">X{{item.goodsNum}} 件</text>

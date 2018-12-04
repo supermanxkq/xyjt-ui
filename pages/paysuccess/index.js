@@ -64,14 +64,8 @@ Page({
 
   },
   toGoodsList:function(){
-    wx.redirectTo({
+    wx.reLaunch({
       url: '../classify/index',
     })
-  },
-  toOrderList:function(){
-    wx.redirectTo({
-      url: '../my/order/index',
-    })
   }
-  
 })

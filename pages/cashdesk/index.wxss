@@ -1,10 +1,10 @@
 /**支付按钮*/
 
-.pay_btn {
+/* .pay_btn {
   position: fixed;
   bottom: 0;
   width: 100%;
-}
+} */
 
 .wechat_pay {
   text-align: center;
@@ -16,4 +16,18 @@
 }
 page{
   background-color:#FFF;
+}
+
+.bottomOper {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  z-index: 5;
+}
+.bottomOper button {
+  width: 50%;
 }

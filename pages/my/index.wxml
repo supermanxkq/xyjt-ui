@@ -17,7 +17,7 @@
         <view class="weui_cell_bd">
           <view class="weui_cell_bd_p" data-index='{{index}}' bindtap='goto'> {{item.text}} </view>
         </view>
-        <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}} </view>
+        <!-- <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}} </view> -->
         <view class="with_arrow"></view>
       </view>
     </block>

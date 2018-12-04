@@ -17,13 +17,23 @@ Page({
   onLoad: function(options) {
     this.queryOrderList();
   },
+  onPullDownRefresh: function() {
+    // 显示顶部刷新图标
+    wx.showNavigationBarLoading();
+    this.queryOrderList();
+    // 隐藏导航栏加载框
+    wx.hideNavigationBarLoading();
+    // 停止下拉动作∏
+    wx.stopPullDownRefresh();
+  },
   /**
    * 查询订单详情
    */
   queryOrderList: function() {
-    var that = this
+    var that = this;
+    var user = wx.getStorageSync('user') || {};
     wx.request({
-      url: app.globalData.domain + '/backstage/order/list',
+      url: app.globalData.domain + '/backstage/order/list?crUsId=' + user.openid,
       method: 'GET',
       data: {},
       header: {
@@ -36,61 +46,37 @@ Page({
       }
     })
   },
-  onPullDownRefresh: function() {
-    // 显示顶部刷新图标
-    wx.showNavigationBarLoading();
-    this.queryOrderList();
-    // 隐藏导航栏加载框
-    wx.hideNavigationBarLoading();
-    // 停止下拉动作∏
-    wx.stopPullDownRefresh();
+  goto_pay: function(e) {
+    var orderid = e.target.dataset.orderid;
+    wx.reLaunch({
+      url: '../../cashdesk/index?orderId=' + orderid,
+    })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
+  confirm_receive: function(e) {
+    var orderid = e.target.dataset.oid;
+    wx.request({
+      url: app.globalData.domain + '/backstage/order/confirmReceive?id=' + orderid,
+      method: 'GET',
+      data: {},
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function(res) {
+        if (res.data.resultCode == 'SUCCESS') {
+          wx.showToast({
+            title: '确认成功',
+            icon: 'success',
+            duration: 1500
+          })
+          setTimeout(function() {
+            wx.hideToast()
+            wx.redirectTo({
+              url: 'index',
+            })
+          }, 2000)
+        }
+      }
+    })
   }
+
 })

@@ -1,5 +1,6 @@
 <view class="container">
-  <block wx:for="{{list}}" wx:key="key">
+  <view wx:if="{{list.length != 0}}">
+    <block wx:for="{{list}}" wx:key="key">
     <navigator url="../details/index?id={{item.id}}">
       <view class="brand_item">
         <image src="{{domain}}/admin/image/download/{{item.id}}/GOODSCOVER" class="pic"></image>
@@ -15,4 +16,8 @@
       </view>
     </navigator>
   </block>
+   </view>
+  <view wx:else class="empty_cart">
+    <view>还没添加商品呢~</view>
+  </view>
 </view>

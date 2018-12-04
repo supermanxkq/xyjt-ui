@@ -138,7 +138,7 @@ page {
   line-height: 16px;
   margin: 0 10px;
   padding: 1px 6px 1px 10px;
-  background: url(http://www.huanqiuxiaozhen.com/assets/images/discount-bg.png) no-repeat center;
+  /* background: url(http://www.huanqiuxiaozhen.com/assets/images/discount-bg.png) no-repeat center; */
   background-size: cover;
   color: rgb(235, 27, 27);
   font-size: 12px;
@@ -149,8 +149,15 @@ page {
   color: #939393;
 }
 
-.bottomOper button {
+.bottomOper {
+  display: flex;
+  flex-direction: row;
   position: fixed;
   bottom: 0;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+}
+.bottomOper button {
+  width: 50%;
 }

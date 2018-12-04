@@ -48,6 +48,22 @@ Page({
         }, 250);
       }
     })
+  },
+  /**
+  * 用户点击右上角分享
+  */
+  onShareAppMessage: function () {
+    return {
+      title: '小野吉他工作室',
+      path: '/pages/classify/index',
+      imageUrl: "/images/share2.jpg",
+      success: (res) => {
+        console.log("转发成功", res);
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
   }
 
 })

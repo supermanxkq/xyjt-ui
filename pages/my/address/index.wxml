@@ -1,25 +1,31 @@
-<!--地址列表容器-->
-<view class="listAddress">
-  <block wx:for="{{addressList}}" wx:key="key" wx:for-index="index" wx:for-item="item">
-    <view class="nameAndPhone">
-      <!--收货人-->
-      <view class="name">
-        {{item.name}}
+<view class="item-box">
+  <view class="items">
+    <view wx:if="{{addressList.length != 0}}">
+      <view wx:for="{{addressList}}" wx:key="{{index}}" class="item">
+        <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}" style="{{item.txtStyle}}" class="inner txt">
+          <block wx:if="{{item.isDefault==='1'}}">
+            <!--是否默认地址-->
+            <span class="default_span">默认</span>
+            <!-- <image src="/images/iconfont-shouhuodizhi.png" style="width:17px;height:15px;"></image> -->
+          </block>
+          {{item.address}}
+        </view>
+        <!--这里是左滑按钮部分----start-->
+        <view bindtap="inner" class="posit">
+          <view class="inner default" data-setdefaultid="{{item.id}}" catchtap="setDefaultAddress">设为默认</view>
+          <view data-index="{{item.id}}" catchtap="delete_address" class="inner del">删除</view>∏
+        </view>
+        <!--这里是左滑按钮部分----end-->
       </view>
-      <!--电话号码-->
-      <view class="phone">
-        {{item.phone}}
-      </view>
-      <block wx:if="{{item.isDefault==='1'}}">
-        <!--是否默认地址-->
-        <span class="default">默认</span>
-      </block>
     </view>
-    <!--收货人详细地址信息-->
-    <view class="address">
-      {{item.address}}
+    <view wx:else class="empty_cart">
+      <view>还没添加地址呢,必须有一个默认地址~</view>
     </view>
-  </block>
+  </view>
+</view>
+<view class="bottomOper">
   <!--新增收货地址按钮-->
-  <button type="primary" class="addAddressBtn" bindtap='toAddPage'>新增收货地址</button>
+  <button type="" bindtap='toIndex'>首页</button>
+  <button type="primary" class="addAddressBtn" bindtap='toAddPage'>新增收货地址
+  </button>
 </view>
