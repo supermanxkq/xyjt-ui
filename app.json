@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/classify/index",
     "pages/cart/index",
     "pages/my/index",
@@ -27,6 +28,12 @@
     "borderStyle": "white",
     "backgroundColor": "#292929",
     "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/footer-icon-02.png",
+        "selectedIconPath": "images/footer-icon-02-active.png",
+        "text": "首页"
+      },
       {
         "pagePath": "pages/classify/index",
         "iconPath": "images/footer-icon-02.png",

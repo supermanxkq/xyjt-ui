@@ -15,14 +15,14 @@ crUsId freight goodsId id leaveMsg payDt payMethod payMoney status "YTJ" tackAdd
             <text class="status" wx:if="{{item.status=='PAYSUCCESS'}}">待发货</text>
             <text class="status" wx:if="{{item.status=='WAITINGTAKEOVER'}}">待收货</text>
             <text class="status" wx:if="{{item.status=='PAYOVER'}}">已完成</text>
-            <text class="status" wx:if="{{item.status=='CANCEL'}}">已取消</text>
+            <text class="status" wx:if="{{item.status=='PAYCANCEL'}}">已取消</text>
           </view>
           <view class="cr_dt_view">
             <text class="cr_dt">{{item.crDt}}</text>
           </view>
-          <navigator url="../details/index?id={{item.id}}">
+          <navigator url="../../details/index?id={{item.goodsId}}">
             <view class="brand_item">
-              <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
+              <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic" mode='aspectFit'></image>
               <view class="right_cont">
                 <text class="country">{{item.goodsName}}</text>
                 <!-- <view class="price">

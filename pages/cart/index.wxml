@@ -3,7 +3,7 @@
     <block wx:for="{{list}}" wx:key="key">
       <!-- <navigator url="../details/index?id={{item.id}}"> -->
         <view class="brand_item">
-          <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic"></image>
+          <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="pic" mode='aspectFit'></image>
           <view class="right_cont">
             <text class="country">{{item.goodsName}}</text>
             <view class="delete_cart" bindtap='deleteCart' data-cartid="{{item.id}}">删除</view>
@@ -20,7 +20,7 @@
       <button type="warn" class="addAddressBtn" bindtap='settle'>结算</button>
   </view>
   <view wx:else class="empty_cart">
-    <image src="{{cartImg}}" class="cart-image" />
+    <image src="{{cartImg}}" class="cart-image" mode='aspectFit'/>
     <view>{{tipWords}}</view>
   </view>
 </view>

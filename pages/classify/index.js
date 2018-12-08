@@ -5,7 +5,8 @@ Page({
     curNav: 1,
     curIndex: 0,
     domain: app.globalData.domain,
-    showList: true
+    showList: true,
+    images: {}
   },
   onLoad: function() {
     this.queryGoodsType();
@@ -64,6 +65,22 @@ Page({
         console.log("转发失败", res);
       }
     }
+  }, 
+  imageLoad: function (e) {
+    var $width = e.detail.width,    //获取图片真实宽度
+      $height = e.detail.height,
+      ratio = $width / $height;    //图片的真实宽高比例
+    var viewWidth = 100,           //设置图片显示宽度，左右留有16rpx边距
+      viewHeight = 100 / ratio;    //计算的高度值
+    var image = this.data.images;
+    //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+    image[e.target.dataset.index] = {
+      width: viewWidth,
+      height: viewHeight
+    }
+    this.setData({
+      images: image
+    })
   }
 
 })

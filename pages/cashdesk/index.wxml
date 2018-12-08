@@ -1,6 +1,6 @@
 <view class="cash_container">
   <view class="wechat_pay">
-    <image src="../../images/WeChatPay.jpg"></image>
+    <image src="../../images/WeChatPay.jpg" mode='aspectFit'></image>
   </view>
   <view class="bottomOper">
     <button type="" bindtap='toIndex'>首页</button>

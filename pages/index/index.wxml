@@ -1,11 +1,11 @@
 <!--index.wxml-->
 <view class="container">
     <view>
-        <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+        <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
                 autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
             <block wx:for="{{images}}">
                 <swiper-item>
-                    <image src="{{item.picurl}}" class="slide-image"/>
+                    <image src="{{item.picurl}}" class="slide-image" mode='aspectFit'/>
                 </swiper-item>
             </block>
         </swiper>

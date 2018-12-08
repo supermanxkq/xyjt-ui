@@ -2,10 +2,10 @@
   <view class="container">
     <!--商品大图展示-->
     <view>
-      <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for="{{goodsPicsInfo}}" wx:key="key">
           <swiper-item>
-            <image src="{{domain}}{{item.picUrl}}" class="slide-image" />
+            <image src="{{domain}}{{item.picUrl}}" class="slide-image" mode="aspectFit" />
           </swiper-item>
         </block>
       </swiper>

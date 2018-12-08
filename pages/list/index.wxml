@@ -3,7 +3,7 @@
     <block wx:for="{{list}}" wx:key="key">
     <navigator url="../details/index?id={{item.id}}">
       <view class="brand_item">
-        <image src="{{domain}}/admin/image/download/{{item.id}}/GOODSCOVER" class="pic"></image>
+        <image src="{{domain}}/admin/image/download/{{item.id}}/GOODSCOVER" class="pic" mode='aspectFit'></image>
         <view class="right_cont">
           <text class="country">{{item.name}}</text>
           <view class="price">
