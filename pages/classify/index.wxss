@@ -60,11 +60,11 @@ page {
 .nav_right .nav_right_items text {
   display: block;
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 13px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-weight: bolder;
+  /* font-weight: bolder; */
 }
 
 @keyframes fadeIn {

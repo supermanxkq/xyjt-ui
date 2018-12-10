@@ -1,4 +1,4 @@
-.wrap {
+/* .wrap {
   width: 100%;
   min-height: 100px;
   display: flex;
@@ -23,4 +23,7 @@
 .see {
   margin-top: 10px;
   color: #6e6e6e;
+} */
+page{
+    background-color: #FFFFFF;
 }

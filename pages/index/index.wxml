@@ -1,53 +1,58 @@
 <!--index.wxml-->
 <view class="container">
-    <view>
-        <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-                autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
-            <block wx:for="{{images}}" wx:key="key">
-                <swiper-item>
-                    <image src="{{item.picurl}}" class="slide-image" mode='aspectFiaspectFill'/>
-                </swiper-item>
-            </block>
-        </swiper>
-    </view>
+  <view>
+    <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for="{{images}}" wx:key="key">
+        <swiper-item>
+          <image src="{{item.picurl}}" class="slide-image" mode='aspectFiaspectFill' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 
-    <view class="text">
-        <view class="line_flag"></view>
-        <text>主题馆</text>
-    </view>
-    
-    <view class="venues_box">
-        <view class="venues_list">
-            <block wx:for="{{venuesItems}}" wx:key="key">
-                <view class="venues_item">
-                    <navigator url="../brand/index?id={{item.id}}">
-                        <image src="{{item.smallpic}}" mode='aspectFit'/>
-                    </navigator>
-                </view>
-            </block>
+  <view class="text">
+    <view class="line_flag"></view>
+    <text>主题馆</text>
+  </view>
+
+  <view class="venues_box">
+    <view class="venues_list">
+      <block wx:for="{{venuesItems}}" wx:key="key">
+        <view class="venues_item">
+          <navigator url="../brand/index?id={{item.id}}">
+            <image src="{{item.smallpic}}" mode='aspectFit' />
+          </navigator>
         </view>
+      </block>
     </view>
+  </view>
 
-    <view class="text">
-        <view class="line_flag"></view>
-        <text>环球精选</text>
+  <view class="text">
+    <view class="line_flag"></view>
+    <text>环球精选</text>
+  </view>
+
+  <view class="choice_box">
+    <view class="choice_list">
+      <block wx:for="{{choiceItems}}" wx:key="key">
+        <navigator url="../details/index?id={{item.id}}">
+          <view class="choice_item">
+            <image src="{{item.goodspics}}" mode='aspectFit' />
+            <view class="title">{{item.title}}</view>
+          </view>
+        </navigator>
+      </block>
     </view>
+  </view>
 
-    <view class="choice_box">
-        <view class="choice_list">
-            <block wx:for="{{choiceItems}}" wx:key="key">
-                <navigator url="../details/index?id={{item.id}}">
-                    <view class="choice_item">
-                        <image src="{{item.goodspics}}" mode='aspectFit'/>
-                        <view class="title">{{item.title}}</view>
-                    </view>
-                </navigator>
-            </block>
-        </view>
-    </view>
-
-    <loading hidden="{{loadingHidden}}">
-        加载中...
-    </loading>
+  <loading hidden="{{loadingHidden}}">
+    加载中...
+  </loading>
+  <view>
+    <contact-button type="default-dark" size="20" session-from="weapp" class="img-plus-style zindex100 yc">
+    </contact-button>
+    <image src="../../images/service.png" open-type='contact' class="img-plus-style"></image>
+    <image src="../../images/call.png" class="img-plus-style1" bindtap="calling"></image>
+  </view>
 
 </view>

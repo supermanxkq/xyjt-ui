@@ -1,4 +1,4 @@
-<view class="top">
+<!-- <view class="top">
     <view class="wrap">
       <image src="../../images/pay_success.png" class="img"></image>
       <text class="word">支付成功</text>
@@ -6,4 +6,33 @@
 </view>
 <view class="btn-group">
   <button type="primary" style="background-color:#f9364f" bindtap='toGoodsList' class="continue">浏览其他商品</button>
+</view> -->
+<view class="page">
+  <view class="weui-msg">
+    <view class="weui-msg__icon-area">
+      <icon type="success" size="93"></icon>
+    </view>
+    <view class="weui-msg__text-area">
+      <view class="weui-msg__title">支付成功</view>
+      <view class="weui-msg__desc">订单支付成功！我们将尽快安排为您发货！</view>
+      <view class="weui-msg__desc">订单号：{{orderId}} | 已付金额：<text class="weui-cell_warn">{{payMoney}}</text> 元</view>
+    </view>
+     
+    <view class="weui-msg__opr-area">
+      <view class="weui-btn-area">
+        <button class="weui-btn" type="primary" bindtap='toOrderList'>查看订单</button>
+        <button class="weui-btn" type="default" bindtap='toGoodsList'>浏览其他商品</button>
+      </view>
+    </view>
+    <!--页面底部开始-->
+    <view class="weui-msg__extra-area">
+      <view class="weui-footer">
+        <view class="weui-footer__links">
+          <navigator url="../index/index" class="weui-footer__link">小野吉他工作室</navigator>
+        </view>
+        <view class="weui-footer__text">Copyright © 2018 All Rights Reserved.</view>
+      </view>
+    </view>
+     <!--页面底部结束-->
+  </view>
 </view>

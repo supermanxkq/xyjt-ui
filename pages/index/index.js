@@ -37,10 +37,18 @@ Page({
   swiperchange: function(e) {
     //console.log(e.detail.current)
   },
+  calling: function () {
+    wx.makePhoneCall({
+      phoneNumber: '18004831028',
+    })
+  },
 
   onLoad: function() {
     console.log('onLoad')
     var that = this
+    // wx.redirectTo({
+    //   url: '../paysuccess/index',
+    // })
     //调用应用实例的方法获取全局数据
     // app.getUserInfo(function(userInfo) {
     //   //更新数据

@@ -58,8 +58,9 @@ Page({
                 'signType': res.data.signType,
                 'paySign': res.data.paySign,
                 'success': function(res) {
+                  console.log(res);
                   wx.redirectTo({
-                    url: '../paysuccess/index',
+                    url: '../paysuccess/index?payMoney=' + that.data.payMoney + '&orderId=' + that.data.orderId,
                   })
                 },
                 'fail': function(res) {
