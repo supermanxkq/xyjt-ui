@@ -9,7 +9,7 @@ Page({
     duration: 1000,
     loadingHidden: true, // loading
     images: [{
-      picurl: 'http://192.168.0.102:8040/admin/image/download/31/GOODSTYPE'
+      picurl: '../../images/1.jpeg'
     }, {
       picurl: 'https://img14.360buyimg.com/n7/jfs/t17119/218/692808582/98253/20e0800a/5aa22186Nd71d4fda.jpg'
     }, {
@@ -42,12 +42,12 @@ Page({
     console.log('onLoad')
     var that = this
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo) {
-      //更新数据
-      that.setData({
-        userInfo: userInfo
-      })
-    })
+    // app.getUserInfo(function(userInfo) {
+    //   //更新数据
+    //   that.setData({
+    //     userInfo: userInfo
+    //   })
+    // })
 
     //sliderList
     // wx.request({

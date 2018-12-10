@@ -9,7 +9,8 @@ Page({
       isunread: true,
     }, {
       icon: '../../images/iconfont-shouhuodizhi.png',
-      text: '收货地址管理'
+      text: '收货地址管理',
+      unreadNum:5
     }, {
       icon: '../../images/iconfont-kefu.png',
       text: '联系客服'
@@ -28,6 +29,10 @@ Page({
     wx.stopPullDownRefresh();
   },
   onLoad: function() {
+    wx.setTabBarBadge({
+      index: 3,
+      text: '10',
+    })
     // var that = this
     // //调用应用实例的方法获取全局数据
     // app.getUserInfo(function(userInfo) {
@@ -38,23 +43,10 @@ Page({
     // })
   },
   //跳转页面
-  goto: function(e) {
-    var index = e.target.dataset.index;
-    console.log("获取到的index的值为：" + index);
-    if (index == 1) {
-      wx.navigateTo({
-        url: 'address/index',
-      })
-    } else if (index == 2) {
+  call: function(e) {
       wx.makePhoneCall({
         phoneNumber: '18004831028',
       })
-    } else if (index == 0) {
-      wx.navigateTo({
-        url: 'order/index',
-      })
-    }else if(index ==3){
-    }
   },
   /**
    * 用户点击右上角分享

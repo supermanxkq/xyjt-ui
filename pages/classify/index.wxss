@@ -1,6 +1,7 @@
-page{
+page {
   background: #f5f5f5;
 }
+
 .container {
   position: relative;
   width: 100%;
@@ -8,25 +9,29 @@ page{
   background-color: #fff;
   color: #939393;
 }
-.nav_left{
+
+.nav_left {
   display: inline-block;
   width: 25%;
   height: 100%;
   background: #f5f5f5;
   text-align: center;
 }
-.nav_left .nav_left_items{
+
+.nav_left .nav_left_items {
   height: 30px;
   line-height: 30px;
   padding: 6px 0;
   border-bottom: 1px solid #dedede;
   font-size: 14px;
 }
-.nav_left .nav_left_items.active{
+
+.nav_left .nav_left_items.active {
   background: #fff;
   border-left: 5px solid red;
 }
-.nav_right{
+
+.nav_right {
   position: absolute;
   top: 0;
   right: 0;
@@ -36,34 +41,60 @@ page{
   padding: 10px;
   background: #fff;
   box-sizing: border-box;
+  margin-top: 49px;
 }
-.nav_right .nav_right_items{
+
+.nav_right .nav_right_items {
   float: left;
   width: 33.33%;
   /* height: 80px; */
   text-align: center;
   margin: 10px 0;
 }
-.nav_right .nav_right_items image{
+
+.nav_right .nav_right_items image {
   width: 60px;
   height: 70px;
 }
-.nav_right .nav_right_items text{
+
+.nav_right .nav_right_items text {
   display: block;
   margin-top: 5px;
   font-size: 10px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font-weight:bolder;
-
+  font-weight: bolder;
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
+}
+
+.searchbar-result {
+  position: fixed;
+  font-size: 14px;
+  z-index: 999;
+  width: 100%;
+  top: 32px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.weui-search-bar {
+  /* position: fixed;
+  top:0;
+  z-index: 999; */
 }

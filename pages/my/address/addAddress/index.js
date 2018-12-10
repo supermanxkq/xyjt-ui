@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isDefault: '0',
+    isDefault: '1',
     disabled:false
   },
   onLoad: function () {

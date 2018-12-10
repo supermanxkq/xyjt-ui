@@ -1,20 +1,44 @@
 var app = getApp()
 Page({
   data: {
-    list:{},
+    list: {},
     domain: app.globalData.domain,
-    goodsTypeId:0
+    goodsTypeId: 0,
+    goodsName: ''
   },
   onLoad: function(options) {
-    this.queryGoodsList(options.goodsTypeId);
-    this.setData({
-      goodsTypeId: options.goodsTypeId
-    });
+    if (options.goodsName) {
+      this.setData({
+        goodsName: options.goodsName
+      });
+      this.queryGoodsListByName(options.goodsName);
+    } else {
+      this.queryGoodsList(options.goodsTypeId);
+      this.setData({
+        goodsTypeId: options.goodsTypeId
+      });
+    }
+  },
+  queryGoodsListByName(goodsName) {
+    var that = this
+    wx.request({
+      url: app.globalData.domain + '/backstage/goods/list?name=' + goodsName,
+      method: 'GET',
+      data: {},
+      header: {
+        'Accept': 'application/json'
+      },
+      success: function(res) {
+        that.setData({
+          list: res.data.content,
+        });
+      }
+    })
   },
   /**
    * 查询商品列表
    */
-  queryGoodsList(goodsTypeId){
+  queryGoodsList(goodsTypeId) {
     var that = this
     wx.request({
       url: app.globalData.domain + '/backstage/goods/list?goodsTypeId=' + goodsTypeId,
@@ -23,7 +47,7 @@ Page({
       header: {
         'Accept': 'application/json'
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           list: res.data.content,
         });
@@ -31,10 +55,15 @@ Page({
     })
   },
   //下拉刷新
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     // 显示顶部刷新图标
     wx.showNavigationBarLoading();
-    this.queryGoodsList(this.data.goodsTypeId);
+    if (this.data.goodsTypeId != 0) {
+      this.queryGoodsList(this.data.goodsTypeId);
+    } else if (this.data.goodsName) {
+      this.queryGoodsListByName(this.data.goodsName);
+    }
+
     // 隐藏导航栏加载框
     wx.hideNavigationBarLoading();
     // 停止下拉动作

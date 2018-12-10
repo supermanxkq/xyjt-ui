@@ -6,7 +6,9 @@ Page({
     curIndex: 0,
     domain: app.globalData.domain,
     showList: true,
-    images: {}
+    images: {},
+    inputShowed: false,
+    inputVal: ""
   },
   onLoad: function() {
     this.queryGoodsType();
@@ -81,6 +83,30 @@ Page({
     this.setData({
       images: image
     })
+  },showInput: function () {
+    this.setData({
+      inputShowed: true
+    });
+  },
+  hideInput: function () {
+    this.setData({
+      inputVal: "",
+      inputShowed: false
+    });
+  },
+  clearInput: function () {
+    this.setData({
+      inputVal: ""
+    });
+  },
+  inputTyping: function (e) {
+    this.setData({
+      inputVal: e.detail.value
+    });
+  },
+  searchByName:function(){
+    wx.navigateTo({
+      url: '../list/index?goodsName='+this.data.inputVal,
+    })
   }
-
 })

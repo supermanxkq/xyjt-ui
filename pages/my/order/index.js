@@ -77,6 +77,41 @@ Page({
         }
       }
     })
+  },
+  //删除订单
+  deleteOrder: function(e) {
+    var id = e.target.dataset.index;
+    wx.showModal({
+      title: '删除订单',
+      content: '确定要订单吗？',
+      'cancelColor': '#0076FF',
+      'confirmColor': '#0076FF',
+      success: function(res) {
+        if (res.confirm) {
+          wx.request({
+            url: app.globalData.domain + '/backstage/order/remove/' + id,
+            data: {},
+            method: 'POST',
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
+            success(res) {
+              if (res.data.resultCode == 'SUCCESS') {
+                console.log("删除成功！")
+                wx.redirectTo({
+                  url: '../order/index',
+                })
+              } else {
+                console.log("删除失败！");
+
+              }
+            }
+          })
+        } else {
+          console.log("用户点击取消");
+        }
+      }
+    })
   }
 
 })

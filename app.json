@@ -12,7 +12,9 @@
     "pages/my/order/index",
     "pages/my/order/addOrder/index",
     "pages/cashdesk/index",
-    "pages/paysuccess/index"
+    "pages/paysuccess/index",
+    "pages/address/list/index",
+    "pages/my/about/index"
   ],
   "window": {
     "backgroundTextStyle": "white",
@@ -30,8 +32,8 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/footer-icon-02.png",
-        "selectedIconPath": "images/footer-icon-02-active.png",
+        "iconPath": "images/footer-icon-01.png",
+        "selectedIconPath": "images/footer-icon-01-active.png",
         "text": "首页"
       },
       {

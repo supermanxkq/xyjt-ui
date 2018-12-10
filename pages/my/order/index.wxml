@@ -1,10 +1,40 @@
 <!-->
 crUsId freight goodsId id leaveMsg payDt payMethod payMoney status "YTJ" tackAddressId : 2
 <-->
-  <view class="container">
+  <view class="page">
     <view wx:if="{{list.length!= 0}}">
       <block wx:for="{{list}}" wx:key="key">
-        <view class="order_single">
+        <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__hd weui-cell">
+            <view class="weui-cell__bd orderId">订单号：{{item.id}}</view>
+            <view wx:if="{{item.status=='PAYTODO'}}">等待付款</view>
+            <view wx:if="{{item.status=='PAYSUCCESS'}}">待发货</view>
+            <view wx:if="{{item.status=='WAITINGTAKEOVER'}}">待收货</view>
+            <view wx:if="{{item.status=='PAYOVER'}}">已完成</view>
+            <view wx:if="{{item.status=='PAYCANCEL'}}">已取消</view>
+            <image src="../../../images/trash.png" style="margin-left:10px;vertical-align: middle;width:19px; height: 15px;" data-index="{{item.id}}" bindtap='deleteOrder'></image>
+          </view>
+          <view class="weui-panel__bd">
+            <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image src="{{domain}}/admin/image/download/{{item.goodsId}}/GOODSCOVER" class="weui-media-box__thumb" mode='aspectFit'></image>
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{item.goodsName}}</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+           
+          </view>
+          <view class="weui-panel__ft">
+            <view class="weui-cell weui-cell_access weui-cell_link   weui-flex">
+              <view class="weui-cell__ft weui-flex__item">实付款:￥{{item.payMoney}}.00</view>
+              <button class="mini-btn weui-flex__item" type="warn" size="mini" plain="true" wx:if="{{item.status=='PAYTODO'}}" data-orderid="{{item.id}}" bindtap="goto_pay">去支付</button>
+              <button type="warn" class="mini-btn weui-flex__item" size="mini" plain="true" wx:if="{{item.status=='WAITINGTAKEOVER'}}" data-oid="{{item.id}}" bindtap="confirm_receive" class="goto_pay">确认收货</button>
+            </view>
+          </view>
+        </view>
+        <!-- <view class="order_single">
           <view class="store_status">
             <view class='item-left'>
               <text class="store">小野吉他工作室</text>
@@ -30,27 +60,24 @@ crUsId freight goodsId id leaveMsg payDt payMethod payMoney status "YTJ" tackAdd
                   <text class="discount">8折</text>
                   <text class="marketprice">{{item.payMoney}}.00</text>
                 </view> -->
-                <!-- <text class="name">{{item.crDt}}</text> -->
+        <!-- <text class="name">{{item.crDt}}</text>
               </view>
             </view>
           </navigator>
           <view class="infoAndBtn">
             <view class="info">
-              <!-- <text class="goods_num">共1件商品</text> -->
               <text class="payed_money">实付款：¥{{item.payMoney}}.00</text>
             </view>
             <view class="btn_oper">
-              <!-- <button type="warn" plain="true" class="buy_again">再次购买</button> -->
               <button type="warn" plain="true" wx:if="{{item.status=='WAITINGTAKEOVER'}}" data-oid="{{item.id}}" bindtap="confirm_receive" class="goto_pay">确认收货</button>
               <button type="warn" plain="true" wx:if="{{item.status=='PAYTODO'}}" data-orderid="{{item.id}}" bindtap="goto_pay" class="goto_pay">去支付</button>
             </view>
           </view>
-        </view>
-      </block>
+        </view> -->
 
+      </block>
     </view>
-    <view wx:else class="empty_order">
-      <image src="{{cartImg}}" class="cart-image" />
-      <view>{{tipWords}}</view>
+    <view wx:else class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
     </view>
   </view>
