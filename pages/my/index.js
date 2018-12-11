@@ -29,10 +29,10 @@ Page({
     wx.stopPullDownRefresh();
   },
   onLoad: function() {
-    wx.setTabBarBadge({
-      index: 3,
-      text: '10',
-    })
+    // wx.setTabBarBadge({
+    //   index: 3,
+    //   text: '10',
+    // })
     // var that = this
     // //调用应用实例的方法获取全局数据
     // app.getUserInfo(function(userInfo) {

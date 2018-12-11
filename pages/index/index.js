@@ -9,7 +9,7 @@ Page({
     duration: 1000,
     loadingHidden: true, // loading
     images: [{
-      picurl: '../../images/1.jpeg'
+      picurl: 'https://alshyl.com/admin/image/download/31/GOODSTYPE'
     }, {
       picurl: 'https://img14.360buyimg.com/n7/jfs/t17119/218/692808582/98253/20e0800a/5aa22186Nd71d4fda.jpg'
     }, {
@@ -47,7 +47,7 @@ Page({
     console.log('onLoad')
     var that = this
     // wx.redirectTo({
-    //   url: '../paysuccess/index',
+    //   url: '../reserve/index',
     // })
     //调用应用实例的方法获取全局数据
     // app.getUserInfo(function(userInfo) {

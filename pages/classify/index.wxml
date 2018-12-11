@@ -50,7 +50,8 @@
             <navigator url="../list/index?goodsTypeId={{childItem.id}}">
               <view>
                 <!-- <block wx:if="{{childItem.tree.logo}}"> -->
-                <image lazy-load="true" class="fadeIn" src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" bindload="aspectFit" />
+                <image  class="fade_in" src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" mode="aspectFit" />
+                      <!-- <image wx:if="{{ item.loaded }}" src="{{domain}}/admin/image/download/{{childItem.id}}/GOODSTYPE" class="fade_in" /> -->
               </view>
               <view wx:if="{{childItem.name}}">
                 <text>{{childItem.name}}</text>

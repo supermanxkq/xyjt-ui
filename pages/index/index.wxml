@@ -4,7 +4,7 @@
     <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
       <block wx:for="{{images}}" wx:key="key">
         <swiper-item>
-          <image src="{{item.picurl}}" class="slide-image" mode='aspectFiaspectFill' />
+          <image src="{{item.picurl}}" class="slide-image"  />
         </swiper-item>
       </block>
     </swiper>

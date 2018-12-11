@@ -8,7 +8,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    domain: 'http://192.168.0.106:8040'
+    domain: 'http://192.168.0.100:8040'
     //domain:'https://alshyl.com'
   },
   onLaunch: function() {

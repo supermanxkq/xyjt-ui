@@ -23,9 +23,7 @@
     </view>
   </view>
 </view>
-<view class="bottomOper">
-  <!--新增收货地址按钮-->
-  <button type="" bindtap='toIndex'>首页</button>
-  <button type="primary" class="addAddressBtn" bindtap='toAddPage'>新增收货地址
-  </button>
+
+<view class="weui-btn-area bottomOper">
+  <button class="weui-btn" type="primary" bindtap='toAddPage'>新增收货地址</button>
 </view>

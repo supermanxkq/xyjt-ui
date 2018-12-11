@@ -1,0 +1,31 @@
+<!-->
+crUsId freight goodsId id leaveMsg payDt payMethod payMoney status "YTJ" tackAddressId : 2
+<-->
+  <view class="page">
+    <view wx:if="{{list.length!= 0}}">
+      <block wx:for="{{list}}" wx:key="key">
+        <view class="weui-panel weui-panel_access">
+          <view class="weui-panel__hd">提交时间：{{item.crDt}}</view>
+          <view class="weui-panel__bd">
+            <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <image class="weui-media-box__thumb" src="../../../images/banner.png" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">预约报名，免费试听一节课</view>
+                <view class="weui-media-box__desc">预约时间：{{item.gotoClassDate}}</view>
+              </view>
+            </navigator>
+            <view class="weui-media-box weui-media-box_text">
+              <view class="weui-media-box__info">
+                <button class="weui-btn button-hover" plain="true" data-index="{{item.id}}" bindtap='deleteItem' size="mini" type="default">删除预约</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view wx:else class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
+  </view>

@@ -98,3 +98,31 @@ page {
   top:0;
   z-index: 999; */
 }
+
+/***图片懒加载样式开始*/
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.img_list {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.img_wrap {
+    display: inline-block;
+    width: 185rpx;
+    height: 185rpx;
+}
+
+image {
+    width: 100%;
+    height: 100%;
+}
+
+.fade_in {
+    animation: fadeIn 1s both;
+}
+
+/**图片懒加载样式结束*/
