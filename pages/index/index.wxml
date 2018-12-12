@@ -1,21 +1,93 @@
 <!--index.wxml-->
 <view class="container">
-  <view>
-    <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
-      <block wx:for="{{images}}" wx:key="key">
-        <swiper-item>
-          <image src="{{item.picurl}}" class="slide-image"  />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
+  <swiper class="swiper_box" circular="true" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+    <!-- <block wx:for="{{images}}" wx:key="key"> -->
 
-  <view class="text">
+    <swiper-item>
+      <image src="../../images/banner4.png" mode='aspectFill' />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/banner5.png" mode='aspectFill' />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/banner3.png" mode='aspectFill' />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/banner2.png" mode='aspectFill' />
+    </swiper-item>
+    <swiper-item>
+      <image src="../../images/banner1.png" mode='aspectFill' />
+    </swiper-item>
+    <!-- </block> -->
+  </swiper>
+
+  <!-- <view class="text">
     <view class="line_flag"></view>
     <text>主题馆</text>
+  </view> -->
+  <view class="page__bd">
+    <view class="weui-grids">
+      <navigator url="../my/about/index" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="../../images/jieshao.png" />
+        <view class="weui-grid__label">琴行介绍</view>
+      </navigator>
+      <navigator url="../my/order/index" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="../../images/dingdan.png" />
+        <view class="weui-grid__label">订单查询</view>
+      </navigator>
+      <navigator url="../reserve/index" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="../../images/sign.png" />
+        <view class="weui-grid__label">课程报名</view>
+      </navigator>
+      <!-- <navigator url="../reserve/index" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="../../images/kechengdingzhi.png" />
+        <view class="weui-grid__label">课程设置</view>
+      </navigator>
+      <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="../../images/baomingjiaofei.png" />
+        <view class="weui-grid__label">报名缴费</view>
+      </navigator>
+
+      <navigator url="" class="weui-grid" hover-class="weui-grid_active">
+        <image class="weui-grid__icon" src="../../images/zixun.png" />
+        <view class="weui-grid__label">最新资讯</view>
+      </navigator> -->
+    </view>
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <image class="weui-article__img" src='../../images/recommend.png' style="width:100%;height:47px;" mode='aspectFit'></image>
+      </view>
+    </view>
+    <view class="weui-grids">
+      <navigator url="../details/index?id=23" class="weui-grid" hover-class="weui-grid_active">
+        <image class="goods_grid" src="https://alshyl.com/admin/image/download/23/GOODSCOVER" mode='aspectFit' />
+        <view class="weui-grid__label">民谣吉他</view>
+      </navigator>
+      <navigator url="../details/index?id=36" class="weui-grid" hover-class="weui-grid_active">
+        <image class="goods_grid" src="https://alshyl.com/backstage/image/download/1094" mode='aspectFit' />
+        <view class="weui-grid__label">静音吉他</view>
+      </navigator>
+      <navigator url="../details/index?id=21" class="weui-grid" hover-class="weui-grid_active">
+        <image class="goods_grid" src="https://alshyl.com/admin/image/download/21/GOODSCOVER" mode='aspectFit' />
+        <view class="weui-grid__label">Epiphone电吉他</view>
+      </navigator>
+      <navigator url="../details/index?id=38" class="weui-grid" hover-class="weui-grid_active">
+        <image class="goods_grid" src="https://alshyl.com/admin/image/download/38/GOODSCOVER" mode='aspectFit' />
+        <view class="weui-grid__label">印尼非洲鼓</view>
+      </navigator>
+      <navigator url="../details/index?id=39" class="weui-grid" hover-class="weui-grid_active">
+        <image class="goods_grid" src="https://alshyl.com/admin/image/download/39/GOODSCOVER" mode='aspectFit' />
+        <view class="weui-grid__label">罗兰音箱</view>
+      </navigator>
+      <navigator url="../details/index?id=47" class="weui-grid">
+        <image class="goods_grid" src="https://alshyl.com/admin/image/download/47/GOODSCOVER" mode='aspectFit' />
+        <view class="weui-grid__label">卡林巴</view>
+      </navigator>
+    </view>
+
   </view>
 
-  <view class="venues_box">
+  <!-- <view class="venues_box">
     <view class="venues_list">
       <block wx:for="{{venuesItems}}" wx:key="key">
         <view class="venues_item">
@@ -25,14 +97,14 @@
         </view>
       </block>
     </view>
-  </view>
+  </view> -->
 
-  <view class="text">
+  <!-- <view class="text">
     <view class="line_flag"></view>
     <text>环球精选</text>
-  </view>
+  </view> -->
 
-  <view class="choice_box">
+  <!-- <view class="choice_box">
     <view class="choice_list">
       <block wx:for="{{choiceItems}}" wx:key="key">
         <navigator url="../details/index?id={{item.id}}">
@@ -43,16 +115,16 @@
         </navigator>
       </block>
     </view>
-  </view>
+  </view> -->
 
   <loading hidden="{{loadingHidden}}">
     加载中...
   </loading>
   <view>
-    <contact-button type="default-dark" size="20" session-from="weapp" class="img-plus-style zindex100 yc">
-    </contact-button>
-    <image src="../../images/service.png" open-type='contact' class="img-plus-style"></image>
-    <image src="../../images/call.png" class="img-plus-style1" bindtap="calling"></image>
+    <!-- <contact-button type="default-dark" size="20" session-from="weapp" class="img-plus-style zindex100 yc">
+    </contact-button> -->
+    <!-- <image src="../../images/kefu.png" open-type='contact' class="img-plus-style"></image> -->
+    <!-- <image src="../../images/dianhua.png" class="img-plus-style1" bindtap="calling"></image> -->
   </view>
 
 </view>

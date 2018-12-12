@@ -8,8 +8,9 @@ Page({
     interval: 3000,
     duration: 1000,
     loadingHidden: true, // loading
+    userInfo:{},
     images: [{
-      picurl: 'https://alshyl.com/admin/image/download/31/GOODSTYPE'
+      picurl: '../../images/banner1.png'
     }, {
       picurl: 'https://img14.360buyimg.com/n7/jfs/t17119/218/692808582/98253/20e0800a/5aa22186Nd71d4fda.jpg'
     }, {
@@ -50,12 +51,6 @@ Page({
     //   url: '../reserve/index',
     // })
     //调用应用实例的方法获取全局数据
-    // app.getUserInfo(function(userInfo) {
-    //   //更新数据
-    //   that.setData({
-    //     userInfo: userInfo
-    //   })
-    // })
 
     //sliderList
     // wx.request({

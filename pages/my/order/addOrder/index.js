@@ -30,10 +30,10 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function(res) {
-        if (!res.data.takeAddress){
-            wx.redirectTo({
-              url: '../../address/index',
-            })
+        if (!res.data.takeAddress) {
+          wx.navigateTo({
+            url: '../../address/index',
+          })
         }
         that.setData({
           takeAddressDefault: res.data.takeAddress,
@@ -63,18 +63,19 @@ Page({
       success: function(res) {
         if (res.data.resultCode == 'SUCCESS') {
           wx.reLaunch({
-            url: '../../../cashdesk/index?orderId='+res.data.id,
+            url: '../../../cashdesk/index?orderId=' + res.data.id,
           })
         }
       }
     });
   },
-  onHide(options){
-    wx.setStorageSync('submitOrderFlag', true);
-  },
-  toIndex:function(){
+  toIndex: function() {
     wx.reLaunch({
       url: '../../../classify/index',
     })
+  },
+  onShow() {
+    //页面中没有默认的收货地址的时候，重新加载地址信息
+    this.queryConfirmOrder();
   }
 })

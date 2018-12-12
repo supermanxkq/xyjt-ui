@@ -10,9 +10,7 @@
             <view class="price">
               <text class="ourprice">￥{{item.goodsPrice}}.00</text>
                <text class="discount">X{{item.goodsNum}} 件</text>
-           <!-- <text class="marketprice">{{item.marketprice}}.00</text> -->
             </view>
-            <!-- <text class="name">{{item.goodsNum}}条评价 {{item.goodsNum}}次浏览  {{item.bigname}}好评</text> -->
           </view>
         </view>
       <!-- </navigator> -->

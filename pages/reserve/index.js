@@ -118,7 +118,7 @@ Page({
           setTimeout(function() {
             wx.hideToast()
             wx.reLaunch({
-              url: '../my/index',
+              url: '../classify/index',
             })
           }, 2000)
         }

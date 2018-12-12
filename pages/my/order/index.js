@@ -14,7 +14,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function() {
     this.queryOrderList();
   },
   onPullDownRefresh: function() {
@@ -46,13 +46,20 @@ Page({
       }
     })
   },
+  /**
+   * 去支付
+   */
   goto_pay: function(e) {
     var orderid = e.target.dataset.orderid;
     wx.reLaunch({
       url: '../../cashdesk/index?orderId=' + orderid,
     })
   },
+  /**
+   * 确认收货
+   */
   confirm_receive: function(e) {
+    var that=this;
     var orderid = e.target.dataset.oid;
     wx.request({
       url: app.globalData.domain + '/backstage/order/confirmReceive?id=' + orderid,
@@ -68,18 +75,20 @@ Page({
             icon: 'success',
             duration: 1500
           })
+          
           setTimeout(function() {
             wx.hideToast()
-            wx.redirectTo({
-              url: 'index',
-            })
+            that.onLoad();
           }, 2000)
         }
       }
     })
   },
-  //删除订单
+  /**
+   * 删除订单
+   */
   deleteOrder: function(e) {
+    var that=this;
     var id = e.target.dataset.index;
     wx.showModal({
       title: '删除订单',
@@ -97,13 +106,17 @@ Page({
             },
             success(res) {
               if (res.data.resultCode == 'SUCCESS') {
-                console.log("删除成功！")
-                wx.redirectTo({
-                  url: '../order/index',
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  duration: 1500
                 })
+                setTimeout(function () {
+                  wx.hideToast()
+                  that.onLoad();
+                }, 2000)
               } else {
                 console.log("删除失败！");
-
               }
             }
           })

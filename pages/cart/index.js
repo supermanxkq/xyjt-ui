@@ -4,13 +4,13 @@ Page({
     cartImg: '../../images/cart-null.png',
     tipWords: '购物车空空哒～',
     list: {},
-    domain: app.globalData.domain
+    domain: app.globalData.domain,
   },
   onLoad: function() {
     this.queryCartList();
   },
   /**
-   * 生命周期函数--监听页面显示
+   * 生命周期函数--监听页面显示1
    */
   onShow: function () {
     this.queryCartList();

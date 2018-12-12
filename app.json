@@ -18,41 +18,41 @@
     "pages/my/form/index"
   ],
   "window": {
-    "backgroundTextStyle": "white",
-    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "black",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "小野吉他工作室",
-    "navigationBarBackgroundColor": "#292929",
-    "backgroundColor": "#F2f2f2",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#FFFFFF",
     "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#6e6d6b",
-    "selectedColor": "#f9f027",
-    "borderStyle": "white",
-    "backgroundColor": "#292929",
+    "selectedColor": "#d81e06",
+    "borderStyle": "#000000",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/footer-icon-01.png",
-        "selectedIconPath": "images/footer-icon-01-active.png",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-active.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/classify/index",
-        "iconPath": "images/footer-icon-02.png",
-        "selectedIconPath": "images/footer-icon-02-active.png",
+        "iconPath": "images/fenlei.png",
+        "selectedIconPath": "images/fenlei-active.png",
         "text": "分类"
       },
       {
         "pagePath": "pages/cart/index",
-        "iconPath": "images/footer-icon-03.png",
-        "selectedIconPath": "images/footer-icon-03-active.png",
+        "iconPath": "images/cart.png",
+        "selectedIconPath": "images/cart-active.png",
         "text": "购物车"
       },
       {
         "pagePath": "pages/my/index",
-        "iconPath": "images/footer-icon-04.png",
-        "selectedIconPath": "images/footer-icon-04-active.png",
+        "iconPath": "images/wo.png",
+        "selectedIconPath": "images/wo-active.png",
         "text": "我的"
       }
     ]
